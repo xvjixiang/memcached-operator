@@ -29,7 +29,6 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	ctrllog "sigs.k8s.io/controller-runtime/pkg/log"
-	"sigs.k8s.io/controller-runtime/pkg/recorder"
 
 	cachev1alpha1 "github.com/xvjixiang/memcached-operator/api/v1alpha1"
 )
@@ -37,8 +36,7 @@ import (
 // MemcachedReconciler reconciles a Memcached object
 type MemcachedReconciler struct {
 	client.Client
-	Scheme   *runtime.Scheme
-	Recorder recorder.EventRecorder
+	Scheme *runtime.Scheme
 }
 
 //+kubebuilder:rbac:groups=cache.example.com,resources=memcacheds,verbs=get;list;watch;create;update;patch;delete
@@ -74,8 +72,6 @@ func (r *MemcachedReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 		log.Error(err, "Failed to get Memcached")
 		return ctrl.Result{}, err
 	}
-
-	r.Recorder.Eventf(memcached, corev1.EventTypeWarning, "Error memcached", "Error happened")
 
 	// Check if the deployment already exists, if not create a new one
 	found := &appsv1.Deployment{}
