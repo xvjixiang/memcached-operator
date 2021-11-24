@@ -31,8 +31,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	cachev1alpha1 "github.com/xvjixiang/k8s_training/operator/src/memcached-operator/api/v1alpha1"
-	"github.com/xvjixiang/k8s_training/operator/src/memcached-operator/controllers"
+	cachev1alpha1 "github.com/xvjixiang/memcached-operator/api/v1alpha1"
+	"github.com/xvjixiang/memcached-operator/controllers"
 	//+kubebuilder:scaffold:imports
 )
 
