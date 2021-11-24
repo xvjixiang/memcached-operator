@@ -1,4 +1,4 @@
-module github.com/xvjixiang/k8s_training/operator/src/memcached-operator
+module github.com/xvjixiang/memcached-operator
 
 go 1.16
 
